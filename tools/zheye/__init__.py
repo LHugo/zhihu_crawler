@@ -7,6 +7,7 @@ from PIL import Image
 from tools.zheye import util
 import numpy as np
 
+
 class zheye:
     def __init__(self):
         ''' load model '''
@@ -14,7 +15,7 @@ class zheye:
         import keras
         full_path = os.path.realpath(__file__)
         path, filename = os.path.split(full_path)
-        self.model = keras.models.load_model(path +'/zheyeV3.keras')
+        self.model = keras.models.load_model(path + '/zheyeV3.keras')
 
     def Recognize(self, fn):
         im = Image.open(fn)
@@ -29,7 +30,7 @@ class zheye:
 
         gmm = GaussianMixture(n_components=7, covariance_type='tied', reg_covar=1e2, tol=1e3, n_init=9)
         gmm.fit(Y)
-        
+
         centers = gmm.means_
 
         points = []
@@ -37,14 +38,14 @@ class zheye:
             scoring = 0.0
             for w_i in range(3):
                 for w_j in range(3):
-                    p_x = centers[i][0] -1 +w_i
-                    p_y = centers[i][1] -1 +w_j
+                    p_x = centers[i][0] - 1 + w_i
+                    p_y = centers[i][1] - 1 + w_j
 
                     cr = util.crop(im, p_x, p_y, radius=20)
                     cr = cr.resize((40, 40), Image.ANTIALIAS)
 
                     X = np.asarray(cr.convert('L'), dtype='float')
-                    X = (X.astype("float") - 180) /200
+                    X = (X.astype("float") - 180) / 200
 
                     x0 = np.expand_dims(X, axis=0)
                     x1 = np.expand_dims(x0, axis=3)
@@ -54,6 +55,6 @@ class zheye:
                         scoring += 1
 
             if scoring > 4:
-                points.append((centers[i][0] -20, centers[i][1] -20))
-                
+                points.append((centers[i][0] - 20, centers[i][1] - 20))
+
         return points

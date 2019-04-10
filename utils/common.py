@@ -4,13 +4,13 @@ import hashlib
 import tesserocr
 from PIL import Image
 from tools.yundama_requests.yundama_requests import YDMHttp
+from tools.zheye import zheye
 
 
 def get_md5(url):
     if isinstance(url, str):
         url = url.encode("utf-8")
-    m = hashlib.md5
-    m.update(url)
+    m = hashlib.md5(url)
     return m.hexdigest()
 
 
@@ -26,13 +26,14 @@ def extract_num(value):
 def date_convert(value):
     try:
         date = datetime.datetime.strptime(value, "%Y/%m/%d").date()
-    except Exception:
+    except Exception as e:
+        print(e)
         date = datetime.datetime.now().date()
     return date
 
 
 def get_captcha():
-    image = Image.open("4.jpg")
+    image = Image.open("1.jpg")
     image = image.convert('L')
     threshold = 220
     table = []
@@ -42,7 +43,6 @@ def get_captcha():
         else:
             table.append(1)
     image = image.point(table, '1')
-    image.show()
     result = tesserocr.image_to_text(image)
     print(result)
 
@@ -59,6 +59,20 @@ def yundama_captcha(filename):
     return text
 
 
-if __name__ == "__main__":
-    captcha = yundama_captcha("D:/PythonProjects/zhihu/tools/yundama_requests/captcha.png")
-    print(captcha)
+def captcha_inverted_cn(filename):
+    z = zheye()
+    positions = z.Recognize(filename)
+    result = []
+    if len(positions) == 2:
+        if positions[0][1] > positions[1][1]:
+            result.append([positions[1][1], positions[1][0]])
+            result.append([positions[0][1], positions[0][0]])
+        else:
+            result.append([positions[0][1], positions[0][0]])
+            result.append([positions[1][1], positions[1][0]])
+    else:
+        result.append([positions[0][1], positions[0][0]])
+    return result
+
+
+captcha_inverted_cn(r"D:\PythonProjects\zhihu\utils\a.gif")

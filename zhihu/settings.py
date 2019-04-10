@@ -56,7 +56,6 @@ COOKIES_ENABLED = True
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    # 'zhihu.middlewares.ZhihuDownloaderMiddleware': 543,
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'zhihu.middlewares.RandomUserAgentMiddleware': 544,
     # 'zhihu.middlewares.JSPageMiddleware': 1
@@ -111,3 +110,5 @@ MYSQL_PASSWORD = "root"
 
 # REDIS_URL = "redis://:lyg@127.0.0.1:6379"
 # REDIRECT_ENABLED = False
+
+KEY_WORD = "Python"
