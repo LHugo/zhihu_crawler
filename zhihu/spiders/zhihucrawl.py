@@ -7,6 +7,7 @@ from selenium import webdriver
 from scrapy.loader import ItemLoader
 from urllib import parse
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 from zhihu.items import ZhihuItemQuestion, ZhihuItemAnswer
 from selenium.webdriver.chrome.options import Options
 import re
@@ -17,13 +18,14 @@ from mouse import move, click
 import os
 from utils.common import captcha_inverted_cn
 from utils.common import yundama_captcha
+from zhihu.settings import KEY_WORD
 
 
 class ZhihucrawlSpider(scrapy.Spider):
     name = 'zhihucrawl'
     allowed_domains = ['www.zhihu.com']
-    KEY_WORD = input("输入知乎搜索关键字：")
-    start_url = ["https://www.zhihu.com/search?q={0}".format(KEY_WORD)]
+
+    start_url = ["https://www.zhihu.com"]
     start_answer_url = "https://www.zhihu.com/api/v4/questions/{0}/answers?include=data%5B%2A%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_reason%2Cis_sticky%2Ccollapsed_by%2Csuggest_edit%2Ccomment_count%2Ccan_comment%2Ccontent%2Ceditable_content%2Cvoteup_count%2Creshipment_settings%2Ccomment_permission%2Ccreated_time%2Cupdated_time%2Creview_info%2Crelevant_info%2Cquestion%2Cexcerpt%2Crelationship.is_authorized%2Cis_author%2Cvoting%2Cis_thanked%2Cis_nothelp%2Cis_labeled%3Bdata%5B%2A%5D.mark_infos%5B%2A%5D.url%3Bdata%5B%2A%5D.author.follower_count%2Cbadge%5B%2A%5D.topics&limit={1}&offset={2}&platform=desktop&sort_by=default"
 
     def start_requests(self):
@@ -32,7 +34,9 @@ class ZhihucrawlSpider(scrapy.Spider):
             return [scrapy.Request(url=self.start_url[0], dont_filter=True, cookies=cookies)]
         else:
             chrome_options = Options()
+            # chrome_options.add_argument('--start-maximized')
             chrome_options.add_argument('--disable-extensions')
+            # chrome_options.binary_location = r"C:\Users\admin\AppData\Local\Google\Chrome\Application\chrome.exe"
             chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
             browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe", chrome_options=chrome_options)
             browser.get("https://www.zhihu.com/signin")
@@ -43,27 +47,35 @@ class ZhihucrawlSpider(scrapy.Spider):
             move(675, 508)
             click()
             time.sleep(1.5)
-            login_status = False
-            while login_status:
-                try:
-                    browser.find_element_by_css_selector(".Popover.AppHeader-menu")
-                    login_status = True
-                except:
-                    try:
-                        # 判断是否是英文验证码，并识别图片返回验证码，并提交
-                        captcha_en_img = browser.find_element_by_xpath("//div[@class='Captcha-chineseContainer']/img/@src")
-                        img = (re.match('.*base64,(R.*)', captcha_en_img, re.S)).group(1)
-                        with open("D:PythonProjects/zhihu/utils/en_captcha.png", "wb") as f:
-                            f.write(base64.b64decode(img))
-                        en_captcha = yundama_captcha("D:PythonProjects/zhihu/utils/en_captcha.png")
-                    except:
-                        # 判断是否中文验证码，并识别图片验证码返回倒立文字坐标，利用坐标模拟点击倒立文字
-                        captcha_cn_img = browser.find_element_by_css_selector("//div[@class='Captcha-englishContainer']/img/@src")
-                        img = (re.match('.*base64,(R.*)', captcha_cn_img, re.S)).group(1)
-                        with open("D:PythonProjects/zhihu/utils/cn_captcha.gif", "wb") as f:
-                            f.write(base64.b64decode(img))
-                        cn_captcha = captcha_inverted_cn("D:PythonProjects/zhihu/utils/cn_captcha.gif")
-
+            content = browser.page_source
+            while "请填写验证码" in content:
+                selector = Selector(text=content)
+                # 判断是否是英文验证码，并识别图片返回验证码，并提交
+                if WebDriverWait(browser, 5).until(lambda x: x.find_element_by_xpath("//div[@class='Captcha-englishContainer']/img/@src")):
+                    en_captcha_img = (re.match('.*base64,(R.*)', selector.xpath("//div[@class='Captcha-englishContainer']/img/@src"), re.S)).group(1)
+                    with open("D:PythonProjects/zhihu/utils/en_captcha.png", "wb") as f:
+                        f.write(base64.b64decode(en_captcha_img))
+                    en_captcha = yundama_captcha("D:PythonProjects/zhihu/utils/en_captcha.png")
+                    browser.find_element_by_css_selector(".Input-wrapper input").send_keys(en_captcha)
+                    move(673, 537)
+                    click()
+                    content = browser.page_source
+                # 判断是否中文验证码，并识别图片验证码返回倒立文字坐标，利用坐标模拟点击倒立文字
+                else:
+                    cn_captcha_img = (re.match('.*base64,(R.*)', selector.xpath("//div[@class='Captcha-chineseContainer']/img/@src"), re.S)).group(1)
+                    with open("D:PythonProjects/zhihu/utils/cn_captcha.gif", "wb") as f:
+                        f.write(base64.b64decode(cn_captcha_img))
+                    cn_captcha = captcha_inverted_cn("D:PythonProjects/zhihu/utils/cn_captcha.gif")
+                    for position in cn_captcha:
+                        position_x = position[0]
+                        position_y = position[1]
+                        move(position_x, position_y)
+                        click()
+                    move(673, 537)
+                    click()
+                    content = browser.page_source
+            time.sleep(1.5)
+            # 获取登录成功后的cookies，将cookies返回下载器供之后的页面请求使用，并将cookies保存至本地文件夹
             cookies = browser.get_cookies()
             cookie_dict = {}
             for cookie in cookies:
@@ -73,14 +85,31 @@ class ZhihucrawlSpider(scrapy.Spider):
             return [scrapy.Request(url=self.start_url[0], dont_filter=True, encoding="utf-8", cookies=cookie_dict)]
 
     def parse(self, response):
-        browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe")
-        browser.get(response.url)
-        for i in range(20):
-            browser.execute_script(
-                "window.scrollTo(0, document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
-            time.sleep(1)
+        chrome_options = Options()
+        chrome_options.add_argument('--disable-extensions')
+        # chrome_options.binary_location = r"C:\Users\admin\AppData\Local\Google\Chrome\Application\chrome.exe"
+        chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+        browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe",
+                                   chrome_options=chrome_options)
+        cookies = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
+        browser.get("https://www.zhihu.com/signin")
+        browser.add_cookie(cookie_dict=cookies)
+        time.sleep(1)
+        browser.find_element_by_xpath("//div[@class='SearchBar-input Input-wrapper Input-wrapper--grey']/input").send_keys(Keys.CONTROL + 'a')
+        browser.find_element_by_xpath("//div[@class='Popover']/div[1]/input").send_keys(KEY_WORD)
+        browser.find_element_by_xpath("//div[@class='Popover']/div[1]/input").send_keys(Keys.RETURN)
+        buttom = False
+        while buttom:
+            content = browser.page_source
+            selector = Selector(text=content)
+            last_position = selector.xpath("//div[@class='Card SearchResult-Card']//a[@target='_blank']/text()[1]").extract()[-1]
+            if last_position == '0':
+                buttom = True
+            else:
+                browser.execute_script(
+                    "window.scrollTo(0, document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
+                time.sleep(1)
         selector = Selector(text=browser.page_source)
-        browser.quit()
         all_urls = selector.xpath("//div[@itemprop='zhihu:question']//a/@href").extract()
         all_urls = [parse.urljoin('https://www.zhihu.com', url) for url in all_urls]
         all_urls = filter(lambda x: True if x.startswith("https") else False, all_urls)
