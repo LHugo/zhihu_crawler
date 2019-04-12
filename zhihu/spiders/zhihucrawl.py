@@ -18,7 +18,7 @@ from mouse import move, click
 import os
 from utils.common import captcha_inverted_cn
 from utils.common import yundama_captcha
-from zhihu.settings import KEY_WORD
+from zhihu.settings import KEY_WORD, COOKIES
 
 
 class ZhihucrawlSpider(scrapy.Spider):
@@ -30,8 +30,7 @@ class ZhihucrawlSpider(scrapy.Spider):
 
     def start_requests(self):
         if os.path.exists("D:/PythonProjects/zhihu/cookies/zhihu.cookie"):
-            cookies = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
-            return [scrapy.Request(url=self.start_url[0], dont_filter=True, cookies=cookies)]
+            return [scrapy.Request(url=self.start_url[0], dont_filter=True, encoding="utf-8", cookies=COOKIES)]
         else:
             chrome_options = Options()
             # chrome_options.add_argument('--start-maximized')
@@ -98,17 +97,12 @@ class ZhihucrawlSpider(scrapy.Spider):
         browser.find_element_by_xpath("//div[@class='SearchBar-input Input-wrapper Input-wrapper--grey']/input").send_keys(Keys.CONTROL + 'a')
         browser.find_element_by_xpath("//div[@class='Popover']/div[1]/input").send_keys(KEY_WORD)
         browser.find_element_by_xpath("//div[@class='Popover']/div[1]/input").send_keys(Keys.RETURN)
-        buttom = False
-        while buttom:
-            content = browser.page_source
-            selector = Selector(text=content)
-            last_position = selector.xpath("//div[@class='Card SearchResult-Card']//a[@target='_blank']/text()[1]").extract()[-1]
-            if last_position == '0':
-                buttom = True
-            else:
-                browser.execute_script(
-                    "window.scrollTo(0, document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
-                time.sleep(1)
+        time.sleep(1)
+        # 模拟下拉操作20次
+        for i in range(20):
+            browser.execute_script(
+                "window.scrollTo(0, document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
+            time.sleep(1)
         selector = Selector(text=browser.page_source)
         all_urls = selector.xpath("//div[@itemprop='zhihu:question']//a/@href").extract()
         all_urls = [parse.urljoin('https://www.zhihu.com', url) for url in all_urls]
@@ -119,7 +113,7 @@ class ZhihucrawlSpider(scrapy.Spider):
                 question_url = match_url.group(1)
                 question_id = match_url.group(2)
                 print(question_url, question_id)
-                yield scrapy.Request(url=question_url, meta={"question_id": question_id}, callback=self.parse_question)
+                yield scrapy.Request(url=question_url, meta={"question_id": question_id}, cookies=COOKIES, callback=self.parse_question)
             else:
                 yield scrapy.Request(url=url, callback=self.parse)
 
@@ -140,7 +134,7 @@ class ZhihucrawlSpider(scrapy.Spider):
 
         question_item = item_loader.load_item()
 
-        yield scrapy.Request(url=self.start_answer_url.format(response.meta.get("question_id"), 20, 0),
+        yield scrapy.Request(url=self.start_answer_url.format(response.meta.get("question_id"), 20, 0), cookies=COOKIES,
                              callback=self.parse_answer)
         yield question_item
 
@@ -164,4 +158,4 @@ class ZhihucrawlSpider(scrapy.Spider):
 
             yield answer_item
         if not is_end:
-            yield scrapy.Request(url=next_url, callback=self.parse_answer)
+            yield scrapy.Request(url=next_url, cookies=COOKIES, callback=self.parse_answer)

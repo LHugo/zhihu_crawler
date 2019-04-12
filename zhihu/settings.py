@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import pickle
 import sys
 import os
 # Scrapy settings for zhihu project
@@ -112,3 +113,4 @@ MYSQL_PASSWORD = "root"
 # REDIRECT_ENABLED = False
 
 KEY_WORD = input("输入知乎搜索关键字：")
+COOKIES = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
