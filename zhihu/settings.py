@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
+import base64
 import pickle
 import sys
+from utils.common import get_random_ip
 import os
 # Scrapy settings for zhihu project
 #
@@ -59,6 +61,7 @@ COOKIES_ENABLED = True
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'zhihu.middlewares.RandomUserAgentMiddleware': 544,
+    'zhihu.middlewares.ProxyMiddleware': 545,
     # 'zhihu.middlewares.JSPageMiddleware': 1
 
 }
@@ -99,18 +102,32 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# 随机UA类型
 RANDOM_UA_TYPE = "Chrome"
 
+# MySQL数据库配置
 MYSQL_HOST = "localhost"
 MYSQL_DBNAME = "zhihucrawl_spider"
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "root"
 
+# 分布式
 # SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 # DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-
 # REDIS_URL = "redis://:lyg@127.0.0.1:6379"
-# REDIRECT_ENABLED = False
 
+# 知乎关键字及cookie
 KEY_WORD = input("输入知乎搜索关键字：")
-COOKIES = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
+# COOKIES = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
+
+# 代理IP
+ip = get_random_ip()[0]
+port = get_random_ip()[1]
+user_id = get_random_ip()[2]
+user_password = get_random_ip()[3]
+proxyServer = "{}:{}".format(ip, port)
+proxyUser = "{}".format(user_id)
+proxyPass = "{}".format(user_password)
+proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
+pass

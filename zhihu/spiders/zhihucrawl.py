@@ -18,7 +18,7 @@ from mouse import move, click
 import os
 from utils.common import captcha_inverted_cn
 from utils.common import yundama_captcha
-from zhihu.settings import KEY_WORD, COOKIES
+from zhihu.settings import KEY_WORD
 
 
 class ZhihucrawlSpider(scrapy.Spider):
@@ -30,6 +30,7 @@ class ZhihucrawlSpider(scrapy.Spider):
 
     def start_requests(self):
         if os.path.exists("D:/PythonProjects/zhihu/cookies/zhihu.cookie"):
+            COOKIES = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
             return [scrapy.Request(url=self.start_url[0], dont_filter=True, encoding="utf-8", cookies=COOKIES)]
         else:
             chrome_options = Options()
@@ -113,7 +114,7 @@ class ZhihucrawlSpider(scrapy.Spider):
                 question_url = match_url.group(1)
                 question_id = match_url.group(2)
                 print(question_url, question_id)
-                yield scrapy.Request(url=question_url, meta={"question_id": question_id}, cookies=COOKIES, callback=self.parse_question)
+                yield scrapy.Request(url=question_url, meta={"question_id": question_id}, callback=self.parse_question)
             else:
                 yield scrapy.Request(url=url, callback=self.parse)
 
@@ -134,7 +135,7 @@ class ZhihucrawlSpider(scrapy.Spider):
 
         question_item = item_loader.load_item()
 
-        yield scrapy.Request(url=self.start_answer_url.format(response.meta.get("question_id"), 20, 0), cookies=COOKIES,
+        yield scrapy.Request(url=self.start_answer_url.format(response.meta.get("question_id"), 20, 0),
                              callback=self.parse_answer)
         yield question_item
 
@@ -158,4 +159,4 @@ class ZhihucrawlSpider(scrapy.Spider):
 
             yield answer_item
         if not is_end:
-            yield scrapy.Request(url=next_url, cookies=COOKIES, callback=self.parse_answer)
+            yield scrapy.Request(url=next_url, callback=self.parse_answer)

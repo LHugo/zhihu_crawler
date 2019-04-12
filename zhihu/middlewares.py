@@ -11,6 +11,7 @@ from fake_useragent import UserAgent
 from selenium import webdriver
 import time
 from scrapy.http import HtmlResponse
+from zhihu.settings import proxyAuth, proxyServer
 
 
 class ZhihuSpiderMiddleware(object):
@@ -133,3 +134,9 @@ class JSPageMiddleware(object):
             browser.execute_script("window.scrollTo(0, document.body.scrollHeight); var lenOfPage=document.body.scrollHeight; return lenOfPage;")
             time.sleep(3)
             return HtmlResponse(url=browser.current_url, body=browser.page_source, encoding="utf-8", request=request)
+
+
+class ProxyMiddleware(object):
+    def process_request(self, request, spider):
+        request.meta["proxy"] = proxyServer
+        request.headers["Proxy-Authorization"] = proxyAuth

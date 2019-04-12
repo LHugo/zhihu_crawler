@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="26113b24-ec8f-499e-8911-fc4a62082a5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zhihu/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/middlewares.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zhihu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" afterDir="false" />
     </list>
@@ -17,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
+            <state relative-caret-position="-218">
+              <caret line="32" column="93" lean-forward="true" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -29,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+            <state relative-caret-position="145">
+              <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -41,8 +43,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhihu/middlewares.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="110" column="31" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="31" />
+            <state relative-caret-position="2485">
+              <caret line="141" column="58" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="58" />
               <folding>
                 <element signature="e#169#195#0" expanded="true" />
               </folding>
@@ -54,7 +56,7 @@
         <entry file="file://$PROJECT_DIR$/main_zhihu.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="76">
-              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <caret line="4" column="30" selection-start-line="5" selection-end-line="6" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -65,11 +67,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhihu/items.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="36" />
-              <folding>
-                <element signature="e#153#166#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="171">
+              <caret line="9" column="43" lean-forward="true" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -89,8 +88,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/zhihu/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="115" column="81" selection-start-line="115" selection-start-column="81" selection-end-line="115" selection-end-column="81" />
+            <state relative-caret-position="61">
+              <caret line="130" column="38" lean-forward="true" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -99,12 +98,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://D:/Evns/py3scrapy/Lib/site-packages/scrapy/downloadermiddlewares/httpproxy.py">
+        <entry file="file://D:/Evns/py3scrapy/Lib/site-packages/twisted/internet/selectreactor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-387">
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="69">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
             </state>
           </provider>
         </entry>
@@ -152,14 +149,14 @@
         <option value="$PROJECT_DIR$/tools/yundama_requests/yundama_requests.py" />
         <option value="$PROJECT_DIR$/tools/crawl_ip/crawl_ip.py" />
         <option value="$PROJECT_DIR$/main_zhihu.py" />
-        <option value="$PROJECT_DIR$/zhihu/middlewares.py" />
         <option value="$PROJECT_DIR$/scrapy.cfg" />
         <option value="$PROJECT_DIR$/zhihu/pipelines.py" />
         <option value="$PROJECT_DIR$/tools/zheye/__init__.py" />
         <option value="$PROJECT_DIR$/zhihu/items.py" />
+        <option value="$PROJECT_DIR$/zhihu/middlewares.py" />
         <option value="$PROJECT_DIR$/utils/common.py" />
-        <option value="$PROJECT_DIR$/zhihu/settings.py" />
         <option value="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" />
+        <option value="$PROJECT_DIR$/zhihu/settings.py" />
       </list>
     </option>
   </component>
@@ -190,36 +187,6 @@
               <item name="zhihu" type="462c0819:PsiDirectoryNode" />
               <item name="zhihu" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="zhihu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="zhihu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (py3scrapy) &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="zhihu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (py3scrapy) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zhihu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (py3scrapy) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="scrapy" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zhihu" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 (py3scrapy) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="scrapy" type="462c0819:PsiDirectoryNode" />
-              <item name="downloadermiddlewares" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -228,7 +195,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../huya" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../yellow_crawler" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
@@ -420,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555053795422</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修改">
+      <created>1555061611727</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1555061611727</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -440,8 +414,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.6918033" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49926794" weight="0.27540985" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.59016395" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49926794" weight="0.36393443" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.3672131" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.29508197" />
@@ -461,13 +435,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py</url>
-          <line>53</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -478,9 +445,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tools/yundama_requests/5.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/tools/yundama_requests/4.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -705,46 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zhihu/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1463">
-          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-          <folding>
-            <element signature="e#193#230#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zhihu/items.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="e#153#166#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/zhihu/middlewares.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="110" column="31" selection-start-line="110" selection-start-column="6" selection-end-line="110" selection-end-column="31" />
-          <folding>
-            <element signature="e#169#195#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/Evns/py3scrapy/Lib/site-packages/parsel/selector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -759,42 +683,87 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main_zhihu.py">
+    <entry file="file://D:/Evns/py3scrapy/Lib/site-packages/scrapy/downloadermiddlewares/httpproxy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        <state relative-caret-position="335">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
           <folding>
-            <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhihu/items.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="43" lean-forward="true" selection-start-line="9" selection-start-column="43" selection-end-line="9" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhihu/pipelines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1463">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+          <folding>
+            <element signature="e#193#230#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-306">
-          <caret line="138" column="27" lean-forward="true" selection-start-line="138" selection-start-column="27" selection-end-line="138" selection-end-column="27" />
+        <state relative-caret-position="-218">
+          <caret line="32" column="93" lean-forward="true" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zhihu/middlewares.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2485">
+          <caret line="141" column="58" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="58" />
+          <folding>
+            <element signature="e#169#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_zhihu.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="30" selection-start-line="5" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/zhihu/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="115" column="81" selection-start-line="115" selection-start-column="81" selection-end-line="115" selection-end-column="81" />
+        <state relative-caret-position="61">
+          <caret line="130" column="38" lean-forward="true" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://D:/Evns/py3scrapy/Lib/site-packages/scrapy/downloadermiddlewares/httpproxy.py">
+    <entry file="file://D:/Evns/py3scrapy/Lib/site-packages/twisted/internet/selectreactor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-387">
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="69">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
         </state>
       </provider>
     </entry>

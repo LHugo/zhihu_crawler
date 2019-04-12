@@ -115,7 +115,7 @@ def get_random_ip():
     for i in info:
         ip = i["ip"]
         port = i["port"]
-        user_id = i["id"]
-        user_password = i["password"]
+        user_id = i["user_id"]
+        user_password = i["user_password"]
         return ip, port, user_id, user_password
 
