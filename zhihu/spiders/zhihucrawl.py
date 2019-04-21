@@ -29,9 +29,10 @@ class ZhihucrawlSpider(scrapy.Spider):
     start_answer_url = "https://www.zhihu.com/api/v4/questions/{0}/answers?include=data%5B%2A%5D.is_normal%2Cadmin_closed_comment%2Creward_info%2Cis_collapsed%2Cannotation_action%2Cannotation_detail%2Ccollapse_reason%2Cis_sticky%2Ccollapsed_by%2Csuggest_edit%2Ccomment_count%2Ccan_comment%2Ccontent%2Ceditable_content%2Cvoteup_count%2Creshipment_settings%2Ccomment_permission%2Ccreated_time%2Cupdated_time%2Creview_info%2Crelevant_info%2Cquestion%2Cexcerpt%2Crelationship.is_authorized%2Cis_author%2Cvoting%2Cis_thanked%2Cis_nothelp%2Cis_labeled%3Bdata%5B%2A%5D.mark_infos%5B%2A%5D.url%3Bdata%5B%2A%5D.author.follower_count%2Cbadge%5B%2A%5D.topics&limit={1}&offset={2}&platform=desktop&sort_by=default"
 
     def start_requests(self):
+        # 判断根目录下是否已经存在cookies文件，若存在则直接调用，否则进行模拟浏览器进行登录并保存cookies至根目录下
         if os.path.exists("D:/PythonProjects/zhihu/cookies/zhihu.cookie"):
-            COOKIES = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
-            return [scrapy.Request(url=self.start_url[0], dont_filter=True, encoding="utf-8", cookies=COOKIES)]
+            cookies = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
+            return [scrapy.Request(url=self.start_url[0], dont_filter=True, encoding="utf-8", cookies=cookies)]
         else:
             chrome_options = Options()
             # chrome_options.add_argument('--start-maximized')
@@ -43,37 +44,55 @@ class ZhihucrawlSpider(scrapy.Spider):
             browser.find_element_by_css_selector(".SignFlow-accountInput.Input-wrapper input").send_keys(Keys.CONTROL + 'a')
             browser.find_element_by_css_selector(".SignFlow-accountInput.Input-wrapper input").send_keys("13169188007")
             browser.find_element_by_css_selector(".SignFlow-password input").send_keys(Keys.CONTROL + 'a')
-            browser.find_element_by_css_selector(".SignFlow-password input").send_keys("lyg960926")
+            browser.find_element_by_css_selector(".SignFlow-password input").send_keys("lyg9609260")
             move(675, 508)
             click()
             time.sleep(1.5)
-            content = browser.page_source
-            while "请填写验证码" in content:
-                selector = Selector(text=content)
-                # 判断是否是英文验证码，并识别图片返回验证码，并提交
-                if WebDriverWait(browser, 5).until(lambda x: x.find_element_by_xpath("//div[@class='Captcha-englishContainer']/img/@src")):
-                    en_captcha_img = (re.match('.*base64,(R.*)', selector.xpath("//div[@class='Captcha-englishContainer']/img/@src"), re.S)).group(1)
-                    with open("D:PythonProjects/zhihu/utils/en_captcha.png", "wb") as f:
-                        f.write(base64.b64decode(en_captcha_img))
-                    en_captcha = yundama_captcha("D:PythonProjects/zhihu/utils/en_captcha.png")
-                    browser.find_element_by_css_selector(".Input-wrapper input").send_keys(en_captcha)
-                    move(673, 537)
+            login_succeed = False
+            while not login_succeed:
+                try:
+                    succeed_element = browser.find_element_by_class_name("Popover PushNotifications AppHeader-notifications")
+                    login_succeed = True
+                except:
+                    move(675, 508)
                     click()
-                    content = browser.page_source
-                # 判断是否中文验证码，并识别图片验证码返回倒立文字坐标，利用坐标模拟点击倒立文字
-                else:
-                    cn_captcha_img = (re.match('.*base64,(R.*)', selector.xpath("//div[@class='Captcha-chineseContainer']/img/@src"), re.S)).group(1)
-                    with open("D:PythonProjects/zhihu/utils/cn_captcha.gif", "wb") as f:
-                        f.write(base64.b64decode(cn_captcha_img))
-                    cn_captcha = captcha_inverted_cn("D:PythonProjects/zhihu/utils/cn_captcha.gif")
-                    for position in cn_captcha:
-                        position_x = position[0]
-                        position_y = position[1]
-                        move(position_x, position_y)
+                    time.sleep(3)
+                    try:
+                        en_captcha_element = browser.find_element_by_class_name("Captcha-englishImg")
+                    except:
+                        en_captcha_element = None
+                    try:
+                        cn_captcha_element = browser.find_element_by_class_name("Captcha-chineseImg")
+                    except:
+                        cn_captcha_element = None
+                    # 判断是否是英文验证码，并识别图片返回验证码，并提交
+                    if en_captcha_element:
+                        en_captcha_img = re.match('.*base64,(R.*)', en_captcha_element.get_attribute("src"), re.S).group(1).replace("%0A", "")
+                        with open("D:/PythonProjects/zhihu/utils/en_captcha.jpeg", "wb") as f:
+                            f.write(base64.b64decode(en_captcha_img))
+                        time.sleep(3)
+                        en_captcha = yundama_captcha("D:/PythonProjects/zhihu/utils/en_captcha.jpeg")
+                        browser.find_element_by_css_selector(".Input-wrapper input").send_keys(en_captcha)
+                        move(673, 537)
                         click()
-                    move(673, 537)
-                    click()
-                    content = browser.page_source
+                    # 判断是否中文验证码，并识别图片验证码返回倒立文字坐标，利用坐标模拟点击倒立文字
+                    if cn_captcha_element:
+                        element_location = cn_captcha_element.location
+                        x_position = element_location['x']
+                        y_position = element_location['y']
+                        browser_navigation_panel_height = browser.execute_script('return window.outerHeight - window.innerHeight;')
+                        cn_captcha_img = re.match('.*base64,(R.*)', cn_captcha_element.get_attribute("src"), re.S).group(1).replace("%0A", "")
+                        with open("D:/PythonProjects/zhihu/utils/cn_captcha.jpeg", "wb") as f:
+                            f.write(base64.b64decode(cn_captcha_img))
+                        cn_captcha = captcha_inverted_cn("D:/PythonProjects/zhihu/utils/cn_captcha.jpeg")
+                        for position in cn_captcha:
+                            position_x = int(position[0]/2)
+                            position_y = int(position[1]/2)
+                            move(x_position + position_x, y_position + position_y + browser_navigation_panel_height)
+                            click()
+                            time.sleep(0.5)
+                        move(673, 537)
+                        click()
             time.sleep(1.5)
             # 获取登录成功后的cookies，将cookies返回下载器供之后的页面请求使用，并将cookies保存至本地文件夹
             cookies = browser.get_cookies()
@@ -109,7 +128,7 @@ class ZhihucrawlSpider(scrapy.Spider):
         all_urls = [parse.urljoin('https://www.zhihu.com', url) for url in all_urls]
         all_urls = filter(lambda x: True if x.startswith("https") else False, all_urls)
         for url in all_urls:
-            match_url = re.match('(.*zhihu.com/question/(\d+))(/|$).*', url)
+            match_url = re.match(r'(.*zhihu.com/question/(\d+))(/|$).*', url)
             if match_url:
                 question_url = match_url.group(1)
                 question_id = match_url.group(2)
