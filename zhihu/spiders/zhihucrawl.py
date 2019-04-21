@@ -48,6 +48,7 @@ class ZhihucrawlSpider(scrapy.Spider):
             move(675, 508)
             click()
             time.sleep(1.5)
+            # 判断是否页面出现了登陆成功后才会出现的页面元素，否则获取验证码页面元素
             login_succeed = False
             while not login_succeed:
                 try:
@@ -90,7 +91,6 @@ class ZhihucrawlSpider(scrapy.Spider):
                             position_y = int(position[1]/2)
                             move(x_position + position_x, y_position + position_y + browser_navigation_panel_height)
                             click()
-                            print("1")
                             time.sleep(0.5)
                         move(673, 537)
                         click()

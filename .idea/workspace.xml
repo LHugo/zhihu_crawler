@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26113b24-ec8f-499e-8911-fc4a62082a5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_zhihu.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_zhihu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" afterDir="false" />
-    </list>
+    <list default="true" id="26113b24-ec8f-499e-8911-fc4a62082a5f" name="Default Changelist" comment="修改" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +13,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="89" column="59" lean-forward="true" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
+            <state relative-caret-position="357">
+              <caret line="90" column="71" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
               </folding>
@@ -336,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555066102140</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改">
+      <created>1555838937169</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555838937169</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -352,7 +355,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4966216" weight="0.39477304" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4966216" visible="true" weight="0.140625" />
       <window_info id="Structure" order="1" sideWeight="0.5016949" side_tool="true" weight="0.15476191" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -370,25 +373,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4966216" visible="true" weight="0.39477304" />
-      <window_info id="Structure" order="1" sideWeight="0.5016949" side_tool="true" weight="0.15476191" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.6918033" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49926794" weight="0.29344264" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.23278688" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.29508197" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.3295082" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32786885" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50073206" side_tool="true" weight="0.69984204" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="FYHJFHGFGHFGH" />
@@ -728,8 +712,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="89" column="59" lean-forward="true" selection-start-line="89" selection-start-column="59" selection-end-line="89" selection-end-column="59" />
+        <state relative-caret-position="357">
+          <caret line="90" column="71" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
           </folding>
