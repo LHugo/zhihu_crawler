@@ -7,7 +7,6 @@ from selenium import webdriver
 from scrapy.loader import ItemLoader
 from urllib import parse
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
 from zhihu.items import ZhihuItemQuestion, ZhihuItemAnswer
 from selenium.webdriver.chrome.options import Options
 import re
@@ -34,6 +33,7 @@ class ZhihucrawlSpider(scrapy.Spider):
             cookies = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
             return [scrapy.Request(url=self.start_url[0], dont_filter=True, encoding="utf-8", cookies=cookies)]
         else:
+            # 通过远程debugging的chrome浏览器进行一系列的模拟登录操作
             chrome_options = Options()
             # chrome_options.add_argument('--start-maximized')
             chrome_options.add_argument('--disable-extensions')
