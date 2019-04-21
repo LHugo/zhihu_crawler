@@ -90,6 +90,7 @@ class ZhihucrawlSpider(scrapy.Spider):
                             position_y = int(position[1]/2)
                             move(x_position + position_x, y_position + position_y + browser_navigation_panel_height)
                             click()
+                            print("1")
                             time.sleep(0.5)
                         move(673, 537)
                         click()
