@@ -44,7 +44,7 @@ class ZhihucrawlSpider(scrapy.Spider):
             browser.find_element_by_css_selector(".SignFlow-accountInput.Input-wrapper input").send_keys(Keys.CONTROL + 'a')
             browser.find_element_by_css_selector(".SignFlow-accountInput.Input-wrapper input").send_keys("13169188007")
             browser.find_element_by_css_selector(".SignFlow-password input").send_keys(Keys.CONTROL + 'a')
-            browser.find_element_by_css_selector(".SignFlow-password input").send_keys("lyg9609260")
+            browser.find_element_by_css_selector(".SignFlow-password input").send_keys("lyg960926")
             move(675, 508)
             click()
             time.sleep(1.5)
@@ -52,7 +52,7 @@ class ZhihucrawlSpider(scrapy.Spider):
             login_succeed = False
             while not login_succeed:
                 try:
-                    succeed_element = browser.find_element_by_class_name("Popover PushNotifications AppHeader-notifications")
+                    browser.find_element_by_class_name("AppHeader-userInfo")
                     login_succeed = True
                 except:
                     move(675, 508)
@@ -71,9 +71,11 @@ class ZhihucrawlSpider(scrapy.Spider):
                         en_captcha_img = re.match('.*base64,(R.*)', en_captcha_element.get_attribute("src"), re.S).group(1).replace("%0A", "")
                         with open("D:/PythonProjects/zhihu/utils/en_captcha.jpeg", "wb") as f:
                             f.write(base64.b64decode(en_captcha_img))
-                        time.sleep(3)
+                        time.sleep(1)
                         en_captcha = yundama_captcha("D:/PythonProjects/zhihu/utils/en_captcha.jpeg")
-                        browser.find_element_by_css_selector(".Input-wrapper input").send_keys(en_captcha)
+                        move(527, 434)
+                        click()
+                        browser.find_element_by_xpath("//div[@class='SignFlowInput']/div[@class='Input-wrapper']/input").send_keys(en_captcha)
                         move(673, 537)
                         click()
                     # 判断是否中文验证码，并识别图片验证码返回倒立文字坐标，利用坐标模拟点击倒立文字
@@ -92,7 +94,7 @@ class ZhihucrawlSpider(scrapy.Spider):
                             move(x_position + position_x, y_position + position_y + browser_navigation_panel_height)
                             click()
                             time.sleep(0.5)
-                        move(673, 537)
+                        move(673, 561)
                         click()
             time.sleep(1.5)
             # 获取登录成功后的cookies，将cookies返回下载器供之后的页面请求使用，并将cookies保存至本地文件夹
@@ -112,7 +114,7 @@ class ZhihucrawlSpider(scrapy.Spider):
         browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe",
                                    chrome_options=chrome_options)
         cookies = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
-        browser.get("https://www.zhihu.com/signin")
+        browser.get("https://www.zhihu.com")
         browser.add_cookie(cookie_dict=cookies)
         time.sleep(1)
         browser.find_element_by_xpath("//div[@class='SearchBar-input Input-wrapper Input-wrapper--grey']/input").send_keys(Keys.CONTROL + 'a')

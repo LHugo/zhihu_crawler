@@ -60,8 +60,8 @@ def yundama_captcha(filename):
     password = 'lyg960926'
     appid = 6681
     appkey = 'b2b32282d67bd432e56b08774b999481'
-    codetype = 5000
-    timeout = 30
+    codetype = 1000
+    timeout = 10
     yundama = YDMHttp(username, password, appid, appkey)
     text = yundama.decode(filename, codetype, timeout)
     return text
@@ -118,4 +118,3 @@ def get_random_ip():
         user_id = i["user_id"]
         user_password = i["user_password"]
         return ip, port, user_id, user_password
-

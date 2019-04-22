@@ -41,8 +41,6 @@ class YDMHttp(object):
         response_data = requests.post(self.apiurl, files=files, data=data)
         ret_data = json.loads(response_data.text)
         if ret_data["ret"] == 0:
-            # print("识别成功", ret_data["text"])
-            # print(ret_data["text"])
             return ret_data["text"]
         else:
             return "识别失败"

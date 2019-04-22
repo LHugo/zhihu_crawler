@@ -61,7 +61,7 @@ COOKIES_ENABLED = True
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
     'zhihu.middlewares.RandomUserAgentMiddleware': 544,
-    'zhihu.middlewares.ProxyMiddleware': 545,
+    # 'zhihu.middlewares.ProxyMiddleware': 545,
     # 'zhihu.middlewares.JSPageMiddleware': 1
 
 }
