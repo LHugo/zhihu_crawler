@@ -77,6 +77,8 @@ class ZhihucrawlSpider(scrapy.Spider):
                         en_captcha = yundama_captcha("D:/PythonProjects/zhihu/utils/en_captcha.jpeg")
                         move(527, 434)
                         click()
+                        while not en_captcha:
+                            time.sleep(3)
                         browser.find_element_by_xpath("//div[@class='SignFlowInput']/div[@class='Input-wrapper']/input").send_keys(en_captcha)
                         move(673, 537)
                         click()
@@ -150,7 +152,7 @@ class ZhihucrawlSpider(scrapy.Spider):
         try:
             item_loader.add_xpath("main_content", "//div[@class='QuestionHeader-detail']//text()")
         except:
-            item_loader.add_value("main_content", "无详细内容")
+            item_loader.add_value("main_content", "无")
         item_loader.add_xpath("tag", "//div[@class='QuestionHeader-topics']//text()")
         item_loader.add_xpath("focus_num", "//div[@class='NumberBoard-item'][1]//strong[@class='NumberBoard-itemValue']/text()")
         item_loader.add_xpath("click_num", "//div[@class='NumberBoard-item']//strong//text()")

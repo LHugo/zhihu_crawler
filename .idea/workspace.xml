@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26113b24-ec8f-499e-8911-fc4a62082a5f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/zhihu.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/zhihu.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_zhihu.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_zhihu.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhihu/middlewares.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/middlewares.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhihu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -280,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555921041711</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="修改">
+      <created>1577343506586</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1577343506586</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,30 +308,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="91" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1577325119167" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577330857911">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577344323294">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1577330857911" />
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1577344323294" />
+    <state x="321" y="0" key="CommitChangelistDialog2" timestamp="1577343505554">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="321" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1577343505554" />
     <state x="558" y="255" width="273" height="218" key="Github.ShareDialog" timestamp="1577343460138">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="558" y="255" width="273" height="218" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1577343460138" />
-    <state width="1345" height="432" key="GridCell.Tab.0.bottom" timestamp="1577332737200">
+    <state width="1345" height="147" key="GridCell.Tab.0.bottom" timestamp="1577344750232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
-    <state width="1345" height="432" key="GridCell.Tab.0.center" timestamp="1577332737200">
+    <state width="1345" height="147" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
+    <state width="1345" height="147" key="GridCell.Tab.0.center" timestamp="1577344750232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
-    <state width="1345" height="432" key="GridCell.Tab.0.left" timestamp="1577332737199">
+    <state width="1345" height="147" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
+    <state width="1345" height="147" key="GridCell.Tab.0.left" timestamp="1577344750232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1577332737199" />
-    <state width="1345" height="432" key="GridCell.Tab.0.right" timestamp="1577332737200">
+    <state width="1345" height="147" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
+    <state width="1345" height="147" key="GridCell.Tab.0.right" timestamp="1577344750232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
+    <state width="1345" height="147" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
     <state width="1345" height="432" key="GridCell.Tab.1.bottom" timestamp="1577332737200">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -346,6 +352,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1345" height="432" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1577343514375">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1577343514375" />
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577343249419">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -353,13 +363,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

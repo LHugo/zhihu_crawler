@@ -123,5 +123,5 @@ def get_random_ip():
 
 # if __name__ == "__main__":
 #
-#     capt = yundama_captcha("D:/PythonProjects/zhihu/tools/yundama_requests/5.png")
+#     capt = yundama_captcha("D:/PythonProjects/zhihu/utils/en_captcha.jpeg")
 #     print(capt)
