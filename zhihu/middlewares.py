@@ -11,7 +11,7 @@ from fake_useragent import UserAgent
 from selenium import webdriver
 import time
 from scrapy.http import HtmlResponse
-from zhihu.settings import proxyAuth, proxyServer
+# from zhihu.settings import proxyAuth, proxyServer
 
 
 class ZhihuSpiderMiddleware(object):

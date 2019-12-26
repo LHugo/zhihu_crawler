@@ -2,7 +2,7 @@ import re
 import datetime
 import hashlib
 import requests
-import tesserocr
+# import tesserocr
 from PIL import Image
 from tools.yundama_requests.yundama_requests import YDMHttp
 from tools.zheye import zheye
@@ -39,19 +39,19 @@ def date_convert(value):
 
 
 # 通过OCR识别图片中的验证码，识别率较低
-def get_captcha():
-    image = Image.open("1.jpg")
-    image = image.convert('L')
-    threshold = 220
-    table = []
-    for i in range(256):
-        if i < threshold:
-            table.append(0)
-        else:
-            table.append(1)
-    image = image.point(table, '1')
-    result = tesserocr.image_to_text(image)
-    print(result)
+# def get_captcha():
+#     image = Image.open("1.jpg")
+#     image = image.convert('L')
+#     threshold = 220
+#     table = []
+#     for i in range(256):
+#         if i < threshold:
+#             table.append(0)
+#         else:
+#             table.append(1)
+#     image = image.point(table, '1')
+#     result = tesserocr.image_to_text(image)
+#     print(result)
 
 
 # 通过付费打码平台第三方接口对验证码进行识别并返回，识别率较高
@@ -108,13 +108,20 @@ def get_proxy():
 
 # 从mongodb所存储的代理验证ip中随机获取ip，并返回ip,port,id,password
 def get_random_ip():
-    client = pymongo.MongoClient(host='localhost', port=27017)
-    db = client['proxy_ip']
-    id_collection = Collection(db, 'ip_pool')
-    info = id_collection.aggregate([{"$sample": {"size": 1}}])
-    for i in info:
-        ip = i["ip"]
-        port = i["port"]
-        user_id = i["user_id"]
-        user_password = i["user_password"]
-        return ip, port, user_id, user_password
+    # client = pymongo.MongoClient(host='localhost', port=27017)
+    # db = client['proxy_ip']
+    # id_collection = Collection(db, 'ip_pool')
+    # info = id_collection.aggregate([{"$sample": {"size": 1}}])
+    # for i in info:
+    #     ip = i["ip"]
+    #     port = i["port"]
+    #     user_id = i["user_id"]
+    #     user_password = i["user_password"]
+    #     return ip, port, user_id, user_password
+    pass
+
+
+# if __name__ == "__main__":
+#
+#     capt = yundama_captcha("D:/PythonProjects/zhihu/tools/yundama_requests/5.png")
+#     print(capt)

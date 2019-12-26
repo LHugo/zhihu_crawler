@@ -17,7 +17,7 @@ from mouse import move, click
 import os
 from utils.common import captcha_inverted_cn
 from utils.common import yundama_captcha
-from zhihu.settings import KEY_WORD
+from zhihu.settings import KEY_WORD, USER_NAME, PASSWORD
 
 
 class ZhihucrawlSpider(scrapy.Spider):
@@ -35,16 +35,18 @@ class ZhihucrawlSpider(scrapy.Spider):
         else:
             # 通过远程debugging的chrome浏览器进行一系列的模拟登录操作
             chrome_options = Options()
-            # chrome_options.add_argument('--start-maximized')
-            chrome_options.add_argument('--disable-extensions')
-            # chrome_options.binary_location = r"C:\Users\admin\AppData\Local\Google\Chrome\Application\chrome.exe"
-            chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
-            browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe", chrome_options=chrome_options)
+            chrome_options.add_argument('--start-maximized')# Chrome窗口最大化
+            # chrome_options.add_argument('--disable-extensions')
+            chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")# 调试器地址
+            browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe", chrome_options=chrome_options)# webdriver地址
             browser.get("https://www.zhihu.com/signin")
+            move(634, 268)
+            click()
+            # 账号密码的模拟输入以及点击登录
             browser.find_element_by_css_selector(".SignFlow-accountInput.Input-wrapper input").send_keys(Keys.CONTROL + 'a')
-            browser.find_element_by_css_selector(".SignFlow-accountInput.Input-wrapper input").send_keys("13169188007")
+            browser.find_element_by_css_selector(".SignFlow-accountInput.Input-wrapper input").send_keys(USER_NAME)
             browser.find_element_by_css_selector(".SignFlow-password input").send_keys(Keys.CONTROL + 'a')
-            browser.find_element_by_css_selector(".SignFlow-password input").send_keys("lyg960926")
+            browser.find_element_by_css_selector(".SignFlow-password input").send_keys(PASSWORD)
             move(675, 508)
             click()
             time.sleep(1.5)
@@ -108,7 +110,7 @@ class ZhihucrawlSpider(scrapy.Spider):
 
     def parse(self, response):
         chrome_options = Options()
-        chrome_options.add_argument('--disable-extensions')
+        chrome_options.add_argument('--disable-extensions')# 禁止开启浏览器拓展应用
         # chrome_options.binary_location = r"C:\Users\admin\AppData\Local\Google\Chrome\Application\chrome.exe"
         chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
         browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe",
@@ -117,9 +119,9 @@ class ZhihucrawlSpider(scrapy.Spider):
         browser.get("https://www.zhihu.com")
         browser.add_cookie(cookie_dict=cookies)
         time.sleep(1)
-        browser.find_element_by_xpath("//div[@class='SearchBar-input Input-wrapper Input-wrapper--grey']/input").send_keys(Keys.CONTROL + 'a')
-        browser.find_element_by_xpath("//div[@class='Popover']/div[1]/input").send_keys(KEY_WORD)
-        browser.find_element_by_xpath("//div[@class='Popover']/div[1]/input").send_keys(Keys.RETURN)
+        browser.find_element_by_xpath("//label[@class='SearchBar-input Input-wrapper Input-wrapper--grey']/input").send_keys(Keys.CONTROL + 'a')
+        browser.find_element_by_xpath("//div[@class='Popover']/label[1]/input").send_keys(KEY_WORD)
+        browser.find_element_by_xpath("//div[@class='Popover']/label[1]/input").send_keys(Keys.RETURN)
         time.sleep(1)
         # 模拟下拉操作20次
         for i in range(20):

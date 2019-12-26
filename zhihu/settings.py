@@ -33,7 +33,7 @@ ROBOTSTXT_OBEY = False
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 0.25
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -42,7 +42,7 @@ DOWNLOAD_DELAY = 0.5
 COOKIES_ENABLED = True
 
 # Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED = False
+TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
 #DEFAULT_REQUEST_HEADERS = {
@@ -118,16 +118,18 @@ MYSQL_PASSWORD = "root"
 # REDIS_URL = "redis://:lyg@127.0.0.1:6379"
 
 # 知乎关键字及cookie
-KEY_WORD = input("输入知乎搜索关键字：")
+KEY_WORD = input("输入知乎搜索关键字:")
+USER_NAME = input("输入知乎账号:")
+PASSWORD = input("输入知乎密码:")
 # COOKIES = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
 
 # 代理IP
-ip = get_random_ip()[0]
-port = get_random_ip()[1]
-user_id = get_random_ip()[2]
-user_password = get_random_ip()[3]
-proxyServer = "{}:{}".format(ip, port)
-proxyUser = "{}".format(user_id)
-proxyPass = "{}".format(user_password)
-proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
-pass
+# ip = get_random_ip()[0]
+# port = get_random_ip()[1]
+# user_id = get_random_ip()[2]
+# user_password = get_random_ip()[3]
+# proxyServer = "{}:{}".format(ip, port)
+# proxyUser = "{}".format(user_id)
+# proxyPass = "{}".format(user_password)
+# proxyAuth = "Basic " + base64.urlsafe_b64encode(bytes((proxyUser + ":" + proxyPass), "ascii")).decode("utf8")
+
