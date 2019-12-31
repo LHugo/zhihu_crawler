@@ -49,7 +49,7 @@ class ZhihucrawlSpider(scrapy.Spider):
             browser.find_element_by_css_selector(".SignFlow-password input").send_keys(PASSWORD)
             move(675, 508)
             click()
-            time.sleep(1.5)
+            time.sleep(1)
             # 判断是否页面出现了登陆成功后才会出现的页面元素，否则获取验证码页面元素
             login_succeed = False
             while not login_succeed:
@@ -59,7 +59,7 @@ class ZhihucrawlSpider(scrapy.Spider):
                 except:
                     move(675, 508)
                     click()
-                    time.sleep(3)
+                    time.sleep(2)
                     try:
                         en_captcha_element = browser.find_element_by_class_name("Captcha-englishImg")
                     except:
@@ -73,13 +73,18 @@ class ZhihucrawlSpider(scrapy.Spider):
                         en_captcha_img = re.match('.*base64,(R.*)', en_captcha_element.get_attribute("src"), re.S).group(1).replace("%0A", "")
                         with open("D:/PythonProjects/zhihu/utils/en_captcha.jpeg", "wb") as f:
                             f.write(base64.b64decode(en_captcha_img))
-                        time.sleep(1)
                         en_captcha = yundama_captcha("D:/PythonProjects/zhihu/utils/en_captcha.jpeg")
+                        while not en_captcha:
+                            time.sleep(1)
+                            en_captcha = yundama_captcha("D:/PythonProjects/zhihu/utils/en_captcha.jpeg")
+                        print(en_captcha)
                         move(527, 434)
                         click()
-                        while not en_captcha:
-                            time.sleep(3)
-                        browser.find_element_by_xpath("//div[@class='SignFlowInput']/div[@class='Input-wrapper']/input").send_keys(en_captcha)
+                        browser.find_element_by_css_selector(
+                            "div.Captcha.SignFlow-captchaContainer > div > div > label > input").send_keys(Keys.CONTROL + 'a')
+                        browser.find_element_by_css_selector(
+                            "div.Captcha.SignFlow-captchaContainer > div > div > label > input").send_keys(en_captcha)
+                        time.sleep(0.5)
                         move(673, 537)
                         click()
                     # 判断是否中文验证码，并识别图片验证码返回倒立文字坐标，利用坐标模拟点击倒立文字
@@ -97,10 +102,10 @@ class ZhihucrawlSpider(scrapy.Spider):
                             position_y = int(position[1]/2)
                             move(x_position + position_x, y_position + position_y + browser_navigation_panel_height)
                             click()
-                            time.sleep(0.5)
+                            time.sleep(0.1)
                         move(673, 561)
                         click()
-            time.sleep(1.5)
+                        time.sleep(0.15)
             # 获取登录成功后的cookies，将cookies返回下载器供之后的页面请求使用，并将cookies保存至本地文件夹
             cookies = browser.get_cookies()
             cookie_dict = {}

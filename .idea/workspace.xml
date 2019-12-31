@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="26113b24-ec8f-499e-8911-fc4a62082a5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zhihu/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,22 +34,22 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jingdong" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Background" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PythonProjects\zhihu" />
+      <recent name="C:\Users\admin\AppData\Local\Programs\Python\Python36\Lib\site-packages\win32\scripts" />
+      <recent name="C:\Users\admin\AppData\Local\Programs\Python\Python36\Scripts" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\PythonProjects\zhihu\utils" />
       <recent name="D:\PythonProjects\zhihu\tools\云打码_requests" />
       <recent name="D:\PythonProjects\zhihu\tools\yundaima_requests" />
       <recent name="D:\PythonProjects\zhihu\tools\crawl_ip" />
       <recent name="D:\PythonProjects\zhihu\tools" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\PythonProjects\zhihu" />
-      <recent name="C:\Users\admin\AppData\Local\Programs\Python\Python36\Lib\site-packages\win32\scripts" />
-      <recent name="C:\Users\admin\AppData\Local\Programs\Python\Python36\Scripts" />
     </key>
   </component>
   <component name="RunManager" selected="Python.main_zhihu">
@@ -282,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577343506586</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="修改">
+      <created>1577346023107</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1577346023107</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,58 +315,74 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="91" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1577325119167" />
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577344323294">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577780872681">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1577344323294" />
-    <state x="321" y="0" key="CommitChangelistDialog2" timestamp="1577343505554">
+    <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1577780872681" />
+    <state x="321" y="0" key="CommitChangelistDialog2" timestamp="1577346022103">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="321" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1577343505554" />
+    <state x="321" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1577346022103" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1577702060771">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1577702060771" />
     <state x="558" y="255" width="273" height="218" key="Github.ShareDialog" timestamp="1577343460138">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="558" y="255" width="273" height="218" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1577343460138" />
-    <state width="1345" height="147" key="GridCell.Tab.0.bottom" timestamp="1577344750232">
+    <state width="1345" height="167" key="GridCell.Tab.0.bottom" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="147" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
-    <state width="1345" height="147" key="GridCell.Tab.0.center" timestamp="1577344750232">
+    <state width="1345" height="167" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state width="1345" height="167" key="GridCell.Tab.0.center" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="147" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
-    <state width="1345" height="147" key="GridCell.Tab.0.left" timestamp="1577344750232">
+    <state width="1345" height="167" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state width="1345" height="167" key="GridCell.Tab.0.left" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="147" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
-    <state width="1345" height="147" key="GridCell.Tab.0.right" timestamp="1577344750232">
+    <state width="1345" height="167" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state width="1345" height="167" key="GridCell.Tab.0.right" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="147" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1577344750232" />
-    <state width="1345" height="432" key="GridCell.Tab.1.bottom" timestamp="1577332737200">
+    <state width="1345" height="167" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state width="1345" height="167" key="GridCell.Tab.1.bottom" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
-    <state width="1345" height="432" key="GridCell.Tab.1.center" timestamp="1577332737200">
+    <state width="1345" height="167" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state width="1345" height="167" key="GridCell.Tab.1.center" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
-    <state width="1345" height="432" key="GridCell.Tab.1.left" timestamp="1577332737200">
+    <state width="1345" height="167" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state width="1345" height="167" key="GridCell.Tab.1.left" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
-    <state width="1345" height="432" key="GridCell.Tab.1.right" timestamp="1577332737200">
+    <state width="1345" height="167" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state width="1345" height="167" key="GridCell.Tab.1.right" timestamp="1577780878482">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="432" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1577332737200" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1577343514375">
+    <state width="1345" height="167" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1577780878482" />
+    <state x="184" y="6" key="SettingsEditor" timestamp="1577430384270">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1577343514375" />
+    <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1577430384270" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1577346024810">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1577346024810" />
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577343249419">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1577343249419" />
+    <state x="359" y="210" width="716" height="306" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1577430381476">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="359" y="210" width="716" height="306" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1366.728@0.0.1366.728" timestamp="1577430381476" />
+    <state x="405" y="276" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1577437095789">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="405" y="276" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1366.728@0.0.1366.728" timestamp="1577437095789" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
