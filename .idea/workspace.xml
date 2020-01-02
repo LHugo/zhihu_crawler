@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="26113b24-ec8f-499e-8911-fc4a62082a5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhihu/items.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/items.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhihu/pipelines.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/pipelines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" beforeDir="false" afterPath="$PROJECT_DIR$/zhihu/spiders/zhihucrawl.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +294,21 @@
       <option name="project" value="LOCAL" />
       <updated>1577781293827</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="修复了一些bug">
+      <created>1577951131079</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1577951131079</updated>
+    </task>
+    <task id="LOCAL-00014" summary="修复了一些bug">
+      <created>1577951237049</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1577951237049</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,7 +327,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="FYHJFHGFGHFGH" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="修复了一些bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复了一些bug" />
   </component>
   <component name="WindowStateProjectService">
     <state x="363" y="91" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1577325119167">
@@ -327,14 +339,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="111" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1577950936851" />
-    <state x="321" y="0" key="CommitChangelistDialog2" timestamp="1577951130078">
+    <state x="321" y="0" key="CommitChangelistDialog2" timestamp="1577951236115">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="321" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1577951130078" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1577702060771">
+    <state x="321" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1577951236115" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1577952068631">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1577702060771" />
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1577952068631" />
     <state x="558" y="255" width="273" height="218" key="Github.ShareDialog" timestamp="1577343460138">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -375,10 +387,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="6" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1577430384270" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1577951137911">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1577951240873">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1577951137911" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1577951240873" />
     <state x="475" y="281" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1577343249419">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

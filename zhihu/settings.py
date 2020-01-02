@@ -118,11 +118,10 @@ MYSQL_PASSWORD = "root"
 # REDIS_URL = "redis://:lyg@127.0.0.1:6379"
 
 # 知乎关键字及cookie
-USER_NAME = "13169188007"
-PASSWORD = "lyg960926"
+USER_NAME = input("输入知乎账号:")
+PASSWORD = input("输入知乎密码:")
 KEY_WORD = input("输入知乎搜索关键字:")
-# USER_NAME = input("输入知乎账号:")
-# PASSWORD = input("输入知乎密码:")
+
 # COOKIES = pickle.load(open('D:/PythonProjects/zhihu/cookies/zhihu.cookie', 'rb'))
 
 # 代理IP
