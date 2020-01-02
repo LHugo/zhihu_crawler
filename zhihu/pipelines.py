@@ -87,3 +87,4 @@ class MysqlTwistedPipeline(object):
         # 执行具体的插入
         insert_sql, items = item.get_insert_sql()
         cursor.execute(insert_sql, items)
+

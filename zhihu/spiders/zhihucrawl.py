@@ -35,10 +35,13 @@ class ZhihucrawlSpider(scrapy.Spider):
         else:
             # 通过远程debugging的chrome浏览器进行一系列的模拟登录操作
             chrome_options = Options()
-            chrome_options.add_argument('--start-maximized')# Chrome窗口最大化
+            # Chrome窗口最大化
+            chrome_options.add_argument('--start-maximized')
             # chrome_options.add_argument('--disable-extensions')
-            chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")# 调试器地址
-            browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe", chrome_options=chrome_options)# webdriver地址
+            # 调试器地址
+            chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
+            # webdriver地址
+            browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe", chrome_options=chrome_options)
             browser.get("https://www.zhihu.com/signin")
             move(634, 268)
             click()
@@ -117,7 +120,8 @@ class ZhihucrawlSpider(scrapy.Spider):
 
     def parse(self, response):
         chrome_options = Options()
-        chrome_options.add_argument('--disable-extensions')# 禁止开启浏览器拓展应用
+        # 禁止开启浏览器拓展应用
+        chrome_options.add_argument('--disable-extensions')
         # chrome_options.binary_location = r"C:\Users\admin\AppData\Local\Google\Chrome\Application\chrome.exe"
         chrome_options.add_experimental_option("debuggerAddress", "127.0.0.1:9222")
         browser = webdriver.Chrome(executable_path="D:/Evns/py3scrapy/Scripts/chromedriver.exe",
@@ -138,7 +142,7 @@ class ZhihucrawlSpider(scrapy.Spider):
         selector = Selector(text=browser.page_source)
         all_urls = selector.xpath("//div[@itemprop='zhihu:question']//a/@href").extract()
         all_urls = [parse.urljoin('https://www.zhihu.com', url) for url in all_urls]
-        all_urls = filter(lambda x: True if x.startswith("https") else False, all_urls)
+        # all_urls = filter(lambda x: True if x.startswith("https") else False, all_urls)
         for url in all_urls:
             match_url = re.match(r'(.*zhihu.com/question/(\d+))(/|$).*', url)
             if match_url:
@@ -154,10 +158,7 @@ class ZhihucrawlSpider(scrapy.Spider):
         item_loader.add_value("zhihu_id", response.meta.get("question_id"))
         item_loader.add_value("url", response.url)
         item_loader.add_xpath("title", "//h1[@class='QuestionHeader-title']//text()")
-        try:
-            item_loader.add_xpath("main_content", "//div[@class='QuestionHeader-detail']//text()")
-        except:
-            item_loader.add_value("main_content", "无")
+        item_loader.add_xpath("main_content", "//div[@class='QuestionHeader-detail']//text()")
         item_loader.add_xpath("tag", "//div[@class='QuestionHeader-topics']//text()")
         item_loader.add_xpath("focus_num", "//div[@class='NumberBoard-item'][1]//strong[@class='NumberBoard-itemValue']/text()")
         item_loader.add_xpath("click_num", "//div[@class='NumberBoard-item']//strong//text()")
@@ -166,7 +167,7 @@ class ZhihucrawlSpider(scrapy.Spider):
 
         question_item = item_loader.load_item()
 
-        yield scrapy.Request(url=self.start_answer_url.format(response.meta.get("question_id"), 20, 0),
+        yield scrapy.Request(url=self.start_answer_url.format(response.meta.get("question_id"), 10, 0),
                              callback=self.parse_answer)
         yield question_item
 
@@ -182,6 +183,7 @@ class ZhihucrawlSpider(scrapy.Spider):
             answer_item["question_id"] = answer["question"]["id"]
             answer_item["author"] = answer["author"]["name"] if "name" in answer["author"] else None
             answer_item["main_content"] = answer["content"] if "content" in answer else answer["excerpt"]
+            answer_item["brief_content"] = answer["excerpt"]
             answer_item["praise_num"] = answer["voteup_count"]
             answer_item["comments_num"] = answer["comment_count"]
             answer_item["update_time"] = answer["updated_time"]

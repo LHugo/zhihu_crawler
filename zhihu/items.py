@@ -51,7 +51,7 @@ class ZhihuItemQuestion(scrapy.Item):
         zhihu_id = int("".join(self["zhihu_id"]))
         tag = "/".join(self["tag"])
         title = "".join(self["title"])
-        main_content = "".join(self["main_content"]).replace("显示全部", "")
+        main_content = "".join(self["main_content"]).replace("显示全部", "无详细内容")
         focus_num = extract_num("".join(self["focus_num"]))
         click_num = extract_num("".join(self["click_num"]))
         comment_num = extract_num("".join(self["comment_num"]))
@@ -70,6 +70,7 @@ class ZhihuItemAnswer(scrapy.Item):
     answer_id = scrapy.Field()
     author = scrapy.Field()
     main_content = scrapy.Field()
+    brief_content = scrapy.Field()
     praise_num = scrapy.Field()
     comments_num = scrapy.Field()
     create_time = scrapy.Field()
@@ -86,7 +87,7 @@ class ZhihuItemAnswer(scrapy.Item):
         """
         create_time = datetime.datetime.fromtimestamp(self["create_time"]).strftime("%Y-%m-%d")
         update_time = datetime.datetime.fromtimestamp(self["update_time"]).strftime("%Y-%m-%d")
-        items = (self["question_id"], self["answer_id"], self["url"], self["author"], self["main_content"],
+        items = (self["question_id"], self["answer_id"], self["url"], self["author"], self["brief_content"],
                  self["praise_num"], self["comments_num"], create_time, update_time,
                  self["crawl_time"].strftime("%Y-%m-%d %H:%M:%S"))
 
