@@ -1,1 +1,11 @@
-# zhhihu_crawler
+# zhihu_crawler
+
+①利用selenium对知乎进行模拟登陆获取其cookies并进行爬取，其中包括突破了极验的倒立文字验证和简单的英文验证码的限制
+
+②并模拟输入搜索关键字，对待爬取的url进行定位并收集待爬取urls
+
+③利用scrapy框架对url进行爬取，并利用scrapy提供的twisted异步IO流将数据写入mysql数据库
+
+④防网站屏蔽措施包括随机UA的切换以及proxy代理池的随机代理切换
+
+⑤后续将构思把所爬取的知乎问答数据进行可视化并数据分析呈现
