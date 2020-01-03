@@ -51,7 +51,7 @@ class ZhihuItemQuestion(scrapy.Item):
         zhihu_id = int("".join(self["zhihu_id"]))
         tag = "/".join(self["tag"])
         title = "".join(self["title"])
-        main_content = "".join(self["main_content"]).replace("显示全部", "无详细内容")
+        main_content = "".join(self["main_content"]).replace("显示全部", "")
         focus_num = extract_num("".join(self["focus_num"]))
         click_num = extract_num("".join(self["click_num"]))
         comment_num = extract_num("".join(self["comment_num"]))

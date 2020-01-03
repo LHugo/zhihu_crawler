@@ -158,7 +158,10 @@ class ZhihucrawlSpider(scrapy.Spider):
         item_loader.add_value("zhihu_id", response.meta.get("question_id"))
         item_loader.add_value("url", response.url)
         item_loader.add_xpath("title", "//h1[@class='QuestionHeader-title']//text()")
-        item_loader.add_xpath("main_content", "//div[@class='QuestionHeader-detail']//text()")
+        try:
+            item_loader.add_xpath("main_content", "//div[@class='QuestionHeader-detail']//text()")
+        except:
+            item_loader.add_value("main_content", "无详细内容")
         item_loader.add_xpath("tag", "//div[@class='QuestionHeader-topics']//text()")
         item_loader.add_xpath("focus_num", "//div[@class='NumberBoard-item'][1]//strong[@class='NumberBoard-itemValue']/text()")
         item_loader.add_xpath("click_num", "//div[@class='NumberBoard-item']//strong//text()")
